@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+
+$input-text-color: #908E89;
+$input-placeholder-color:#E2E2E0;
+$input-border: solid #E2E2E0 2px;
+
+@mixin card-font {
+    font-family: 'Inconsolata', monospace;
+    letter-spacing: 0.1em;
+}
+
+@mixin card-input-text {
+    @include card-font;
+    text-indent: 10px;
+    color:$input-text-color;
+    font-size: 17px;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    &__fields-wrapper {
+        width:365px;
+        height: 225px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        padding: 25px;
+        background-color: #fafaed;
+        border: solid 2px #8D8A85;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    &--success {
+        background-color: #a7fcb9;
+    }
+
+    &__message--success {
+        position: absolute;
+        bottom: 70px;
+        width: 315px;
+        height: 20px;
+        background-color: rgba(37, 247, 47,0.5);
+        text-align: center;
+        line-height: 15px;
+    }
+
+    .message__info {
+        @include card-font;
+        font-size:12px;
+
+        color: #000;
+    }
+
+    &__input {
+        @include card-input-text;
+        width: 315px;
+        height: 40px;
+        margin-bottom: 15px;
+
+        &--cvv2, &--month, &--year {
+            @include card-input-text;
+            width: 80px;
+            height: 40px;
+        }
+    }
+
+    &__content-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 315px;
+    }
+
+    
+
+    option {
+        @include card-input-text;
+    }
+
+    &__submit-btn {
+        @include card-font;
+        width: 140px;
+        height: 40px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ADA093;
+        color: #FFFFFF;
+        font-size: 15px;
+
+        &:focus {
+            background-color: #8f8378;
+        }
+
+        &:disabled {
+            background-color: $input-placeholder-color;
+        }
+    }
+
+    input, select, input:focus {
+        color: $input-text-color;
+        border: $input-border;
+    }
+
+    input::placeholder{
+        color: $input-placeholder-color;
+    }
+
+    //delete number input`s pointers
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+    input[type="number"] {
+    -moz-appearance: textfield;
+    }
+    input[type="number"]:hover,
+    input[type="number"]:focus {
+    -moz-appearance: number-input;
+    }
+
+
+    input[type="number"] {
+
+        -moz-appearance: textfield;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        &:hover,
+        &:focus {
+            -moz-appearance: number-input;
+        }
+    }
+
+}
